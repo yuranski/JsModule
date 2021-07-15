@@ -1,0 +1,19 @@
+.users-box{
+    display: grid;
+    grid-template-columns: auto auto;
+    background-color: grey;
+    padding: 10px;
+}
+.user-block{
+    background-color: red;
+    border: 1px solid black;
+    padding: 20px;
+    text-align: center;
+}
+
+.address-block{
+    background-color: darkseagreen;
+    border: 1px solid black;
+    padding: 20px;
+    text-align: center;
+}

@@ -1,0 +1,12 @@
+.wrap{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    background-color: grey;
+    padding: 10px;
+}
+.post-card{
+    background-color: red;
+    border: 1px solid black;
+    padding: 20px;
+    text-align: center;
+}
