@@ -45,7 +45,7 @@ console.log(normalized(n3));
 
 
 // - Сворити функцію яка буде переносити елементи з значенням 0 у кінець маисву. Зберігаючи при цьому порядок не нульових значень.
-// Двожина масиву від 2 до 100
+// Двожина масиву від 2 до 100.
 // EXAMPLE:
 // [1,0,6,0,3] => [1,6,3,0,0]
 // [0,1,2,3,4] => [1,2,3,4,0]
@@ -72,6 +72,7 @@ let zeroToTheEnd = function (arr){
 console.log(zeroToTheEnd(exFinal1));
 console.log(zeroToTheEnd(exFinal2));
 console.log(zeroToTheEnd(exFinal3));
+
 
 
 
