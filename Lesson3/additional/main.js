@@ -61,11 +61,11 @@ let zeroToTheEnd = function (arr){
             ex += 0;
         }
         else {
-            newArr += arr[i];
+            newArr.push(arr[i]);
         }
     }
     for (let i = 0; i < ex.length; i++) {
-        newArr += 0;
+        newArr.push(0);
     }
     return newArr;
 }
