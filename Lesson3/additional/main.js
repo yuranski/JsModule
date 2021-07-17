@@ -10,13 +10,13 @@ let changeMas = function (mas, num) {
     let mas2 = [];
     for (let i = 0; i < mas.length; i++) {
         if (mas[num] === mas[i]) {
-            mas2 += mas[i + 1];
+            mas2.push(mas[i + 1]);
             ii++;
         } else if (ii === 1) {
-            mas2 += mas[i - 1];
+            mas2.push(mas[i - 1])
             ii = 0;
         } else {
-            mas2 += mas[i];
+            mas2.push(mas[i])
         }
     }
     return mas2;
