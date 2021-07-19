@@ -100,18 +100,18 @@ let arithmeticMean = function (yourMass) {
 }
 console.log(arithmeticMean(ex2));
 
-
+//TODO исправил!)
 // - створити функцію яка заповнює масив рандомними числами
 // (цей код генерує рандомні числа в діапазоні від 0 до 100 - Math.round(Math.random()*100)) та виводить його.
 //     Для виведення використати попередню функцію.
 let ex3 = [];
-let addMasRandom = function () {
-    ex3.push(Math.round(Math.random() * 100));
+let addMasRandom = function (arr) {
+    return arr.push(Math.round(Math.random() * 100));
 }
-addMasRandom();
-console.log(ex3);
+addMasRandom(ex3);
 
 
+//TODO исправил!)
 // - Створити функцію яка приймає масив будь яких объектів, та повертає масив ключів всіх обєктів
 // EXAMPLE:
 //     [{name: 'Dima', age: 13}, {model: 'Camry'}]  ===> [ name, age, model ]
@@ -121,13 +121,12 @@ let ex4 = [
     {name: 'Olya', age: 15}, {model: 'BMW'},
     {name: 'Igor', age: 16}, {model: 'Volkswagen'},
 ];
-
 let keyMas = function (arr) {
     let m1 = [];
     let i = 0;
     for (const ex4Element of arr) {
         for (const ex4ElementElement in ex4Element) {
-            m1 += ex4ElementElement + ', ';
+            m1.push(ex4ElementElement);
         }
         if (i === 1) {
             return m1;
@@ -162,7 +161,7 @@ let keyEll = function (arr) {
 }
 console.log(keyEll(ex4));
 
-
+//TODO исправил!)
 //     - створити функцію  яка скаладає значення елементів з однаковими індексами  та повертає новий результуючий масив.
 //     EXAMPLE:
 //     [1,2,3,4]
@@ -174,7 +173,7 @@ let bb = [2,3,4,5];
 let result = function (a,b){
     let cc = [];
     for (let i = 0; i < a.length && i < b.length; i++) {
-        cc += a[i] + b[i] + ' ';
+        cc.push(a[i] + b[i]);
     }
     return cc;
 }

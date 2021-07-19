@@ -13,11 +13,12 @@ let areaCylinder = function (r, h) {
     return 2 * 3.1415 * r * (r + h);
 }
 
+//TODO исправил!)
 // - створити функцію яка приймає будь-яку кількість чисел, повертає найменьше, а виводить найбільше (Math використовувати заборонено);
-let someMas = [4,2,3,4,5,6,7,5,4,3,2,5,5,6,7,6];
+let someMas = [0,-4,2,3,4,5,6,7,-52,4,3,2,5,5,6,7,6];
 let some = function (a) {
     let max = 0;
-    let min = 10000000000000;
+    let min = Number.MAX_SAFE_INTEGER;
     for (let i = 0; i < a.length; i++) {
         if(a[i] < min){min = a[i];}
         if (a[i] > max){max = a[i];}
@@ -25,6 +26,8 @@ let some = function (a) {
     console.log(max);
     return min;
 }
+console.log(some(someMas));
+debugger
 
 
 // - створити функцію яка при створює блок з текстом. Текст задати через аргумент

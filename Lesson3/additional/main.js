@@ -23,7 +23,7 @@ let changeMas = function (mas, num) {
 }
 console.log(changeMas(mas, 2));
 
-
+//TODO исправил!)
 // - Дано список імен.
 // let n1 = '    Harry       Potter      '
 // let n2 = '    Ron       Whisley      '
@@ -36,12 +36,27 @@ let n1 = '    Harry       Potter      '
 let n2 = '    Ron       Whisley      '
 let n3 = '    Hermione       Granger      '
 let normalized = function (name) {
-    let res = name.replaceAll(' ', '');
-    return res.replace(/([A-Z])/g, ' $1').trim();
+    let res = name.trim();
+    let finalStr = '';
+    let a = 0;
+    for (let i = 0; i < res.length; i++) {
+        if(res[i] === ' ' && a === 0){
+            finalStr += ' ';
+            a++;
+        } else if (res[i] !== ' ') {
+            finalStr += res[i];
+        }
+    }
+    return finalStr;
 }
 console.log(normalized(n1));
 console.log(normalized(n2));
 console.log(normalized(n3));
+
+// console.log(normalized(n1));
+// console.log(normalized(n2));
+// console.log(normalized(n3));
+
 
 
 // - Сворити функцію яка буде переносити елементи з значенням 0 у кінець маисву. Зберігаючи при цьому порядок не нульових значень.
