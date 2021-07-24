@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+
+<script>
+
+
+    let b = document.createElement('div')
+
+    let a = document.createTextNode(localStorage.getItem('someThing')).textContent
+
+    let aToArrays = [].aToArrays = a.split(',');
+
+
+    console.log(aToArrays)
+
+
+    b.appendChild(aToArrays.innerHTML)
+    //
+    // console.log(a)
+    // console.log(b)
+    //
+    document.body.appendChild(b)
+
+
+</script>
+</html>

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+
+
+<h1 id="main_header">This is page for task2</h1>
+<ul>
+    <li class="linkList listElement1"><a href="#">link1</a></li>
+    <li class="linkList listElement2"><a href="#">link2</a></li>
+    <li class="linkList listElement3"><a href="#">link3</a></li>
+</ul>
+<h3 class="sub-header">content 1 segment</h3>
+<div class="content_1">
+    <p class="text_segment text1">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet at autem cumque distinctio,
+        dolorem
+        eligendi eum eveniet facere inventore ipsa minus pariatur repellendus sequi sit veniam voluptatum.
+        Fugit,
+        soluta?</p>
+
+</div>
+<h3 class="sub-header">content 2 segment</h3>
+<div class="content_2">
+    <p class="text_segment text2">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam beatae, exercitationem modi mollitia
+        omnis
+        possimus quam rerum sequi temporibus tenetur! Accusantium ad commodi eveniet excepturi laboriosam quis
+        quisquam sint temporibus.</p>
+</div>
+
+
+
+<script>
+    // 1) Напишіть код, який :
+    // a) змінює колір тексту елемнту з ід main_header на назву групи в якій ви вчитесь (mon-year)
+    let mainHeader = document.getElementById('main_header');
+    let a = prompt('Enter number');
+    mainHeader.style.color = a;
+
+    // b) робить шириниу елементу ul 400px
+    let elemUls = document.getElementsByTagName('ul')
+    for (const elemUl of elemUls) {
+        elemUl.style.width = '400px';
+    }
+
+    // c) робить шириниу всіх елементів з класом linkList шириною 50%
+    let linkLists = document.getElementsByClassName('linkList')
+    for (const linkList1 of linkLists) {
+        linkList1.style.width = '50%';
+    }
+
+    // d) отримує текст який зберігається в елементі з класом listElement2
+    let b = prompt('Enter number');
+    let linkLists2 = document.getElementsByClassName('listElement2');
+
+    for (const linkList2Element of linkLists2) {
+        linkList2Element.innerHTML = b
+    }
+
+    // e) отримує всі елементи li та змінює ім колір фону на сірий
+    let liElems = document.getElementsByTagName('li')
+    for (const liElemElement of liElems) {
+        liElemElement.style.backgroundColor = 'silver';
+    }
+
+    // f) отримує всі елементи 'a' та додає їм клас anchor
+    let aElems = document.getElementsByTagName('a')
+    for (const aElemElement of aElems) {
+        aElemElement.classList.add('anchor');
+    }
+
+    // g) отримує всі елементи 'a' та у випадку, якщо текстовий контен елементу дорівнює link3, змінює йому розмір тексту на 40 пікселів
+    for (const aElemElement of aElems) {
+        if(aElemElement.innerHTML === 'link3'){
+            aElemElement.style.fontSize = '40px';
+        }
+    }
+
+    // h) отримує всі елементи 'a' та додає їм клас element_XXX. Де XXX - текстовий контент елементу a
+    for (const aElemElement of aElems) {
+        aElemElement.classList.add(aElems[0].innerHTML);
+    }
+
+    // i) отримує всі елементи 'sub-header' та змінює колір фону. Фон отримати з prompt()
+    let subHeaders = document.getElementsByClassName('sub-header');
+    let c = prompt('Enter number');
+    for (const subHeader of subHeaders) {
+        subHeader.style.backgroundColor = c
+    }
+
+    // j) отримує всі елементи 'sub-header' та змінює колір тексту у видаку якщо текст елемнту = content 2 segment . Колір отримати з prompt()
+    let d = prompt('Enter number');
+    for (const subHeader of subHeaders) {
+        if(subHeader.innerHTML === 'content 2 segment')
+        subHeader.style.backgroundColor = d
+    }
+
+    // k) отримує елемент з класом content_1 та заміняє  в ньому тест на довільний. Текст отримати з prompt()
+    let content1Class = document.getElementsByClassName('content_1');
+    let e = prompt('Enter number');
+    for (const content1Class1 of content1Class) {
+        //тут не розумію дещо... Якщо тут буде innerText і туди передати змінну е без параграфа
+        //то параграф зникає і значення е передається просто в ДІВ
+        content1Class1.innerHTML = `<p>${e}</p>`
+    }
+
+    // l) отримати елементи p та змінити їм padding на 20px
+    let pElems = document.getElementsByTagName('p')
+    for (const pElemElement of pElems) {
+        pElemElement.style.padding = '20px';
+    }
+
+    // m) отримати елементи з класом text2 та змінити їм текст на назву групи (mon-year)
+    let text2Elems = document.getElementsByClassName('text2');
+    for (const text2Elem of text2Elems) {
+        text2Elem.innerHTML = 'Some txt'
+    }
+
+
+</script>
+</body>
+</html>

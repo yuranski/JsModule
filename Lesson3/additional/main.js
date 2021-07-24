@@ -53,11 +53,6 @@ console.log(normalized(n1));
 console.log(normalized(n2));
 console.log(normalized(n3));
 
-// console.log(normalized(n1));
-// console.log(normalized(n2));
-// console.log(normalized(n3));
-
-
 
 // - Сворити функцію яка буде переносити елементи з значенням 0 у кінець маисву. Зберігаючи при цьому порядок не нульових значень.
 // Двожина масиву від 2 до 100.
