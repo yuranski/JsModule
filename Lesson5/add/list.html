@@ -13,23 +13,48 @@
 
 <script>
 
+    let someFn = function () {
+        let someThings = document.createTextNode(localStorage.getItem('someThing'))
+        let someThingsElems = someThings.textContent.split(',')
 
-    let b = document.createElement('div')
-
-    let a = document.createTextNode(localStorage.getItem('someThing')).textContent
-
-    let aToArrays = [].aToArrays = a.split(',');
-
-
-    console.log(aToArrays)
+        let someNumberOfPieces = document.createTextNode(localStorage.getItem('someNumberOfPieces'))
+        let someNumberOfPiecesElems = someNumberOfPieces.textContent.split(',')
 
 
-    b.appendChild(aToArrays.innerHTML)
-    //
-    // console.log(a)
-    // console.log(b)
-    //
-    document.body.appendChild(b)
+        for (const someThingsElem of someThingsElems) {
+
+        }
+
+        for (let i = 0; i < someThingsElems.length; i++) {
+
+            let divEl1 = document.createElement('div')
+            divEl1.insertAdjacentHTML('beforeend', someThingsElems[i] + '-----');
+            document.body.appendChild(divEl1)
+
+            divEl1.insertAdjacentHTML('beforeend', someNumberOfPiecesElems[i]);
+            document.body.appendChild(divEl1)
+
+        }
+
+
+
+
+
+
+
+    }
+
+    // let divEl1 = document.createElement('div')
+    // let someThings = document.createTextNode(localStorage.getItem('someThing'))
+    // divEl1.insertAdjacentHTML( 'beforeend', someThings.textContent );
+    // document.body.appendChild(divEl1)
+
+    someFn();
+
+
+    // let someNumberOfPieces = document.createTextNode(localStorage.getItem('someNumberOfPieces'))
+    // divEl1.insertAdjacentHTML( 'beforeend', someNumberOfPieces.textContent );
+    // document.body.appendChild(divEl1)
 
 
 </script>

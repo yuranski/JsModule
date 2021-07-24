@@ -70,8 +70,8 @@
         <form id="btnToAction">
             <input type="text" placeholder="Имя" id="nameThing">
             <input type="text" placeholder="Кол-во товаров" id="numberOfPieces">
-            <input type="text" placeholder="Цена" id="priceOfTheThing">
-            <input type="text" placeholder="Картинка по url" id="linkToThePicture">
+<!--            <input type="text" placeholder="Цена" id="priceOfTheThing">-->
+<!--            <input type="text" placeholder="Картинка по url" id="linkToThePicture">-->
             <button id="toBuy">Заказати</button>
         </form>
     </div>
@@ -132,25 +132,34 @@
     // Зберігати товари в масив в локалсорадж. При збережені товару з форми, action не повинно відбуватись.
     //     створити елемент <a href='list.html'> На сторінку товарів</a>, та list.html, при переході на який відобразити на сторінці всі товари.
 
-    let nameThingArrays = [];
-    let numberOfPiecesArrays = [];
-    let priceOfTheThingArrays = [];
-    let linkToThePictureArrays = [];
+    let nameThingArrays = []
+    let numberOfPiecesArrays = []
 
     btnToAction.onclick = function (ev) {
         ev.preventDefault();
 
         nameThingArrays.push(nameThing.value);
         localStorage.setItem('someThing', nameThingArrays)
+        // let someArr1 = [];
+        // someArr1.push(nameThing.value  + '------')
 
         numberOfPiecesArrays.push(numberOfPieces.value);
         localStorage.setItem('someNumberOfPieces', numberOfPiecesArrays)
+        // let someArr2 = [];
+        // someArr2.push(numberOfPieces.value + '')
+        // localStorage.setItem('somePriceOfTheThing', priceOfTheThing.value)
+        // localStorage.setItem('someLinkToThePicture', linkToThePicture.value)
 
-        priceOfTheThingArrays.push(priceOfTheThing.value);
-        localStorage.setItem('somePriceOfTheThing', priceOfTheThingArrays)
-
-        linkToThePictureArrays.push(linkToThePicture.value);
-        localStorage.setItem('someLinkToThePicture', linkToThePictureArrays)
+     //    let divEl1 = document.createElement('div')
+     // //   let someThing = document.createTextNode(localStorage.getItem('someThing'))
+     //    divEl1.insertAdjacentHTML( 'beforeend', someArr1[0] );
+     //    someArr1.shift();
+     //    document.body.appendChild(divEl1)
+     //
+     // //   let someNumberOfPieces = document.createTextNode(localStorage.getItem('someNumberOfPieces'))
+     //    divEl1.insertAdjacentHTML( 'beforeend', someArr2[0] );
+     //    someArr2.shift();
+     //    document.body.appendChild(divEl1)
     }
 
 
