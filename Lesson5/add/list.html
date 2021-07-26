@@ -6,43 +6,77 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<div style="position: absolute; left: 800px; top: 300px">
+    <button id="deletedAll" style="height: 100px; width: 150px">
+        <img style="height: 100px; width: 150px" src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Fire02.jpg" alt="SomePhoto">
+        СЖЕЧЬ ВСЕ
+    </button>
+</div>
 
 </body>
 
 <script>
 
-    let someFn = function () {
-        let someThings = document.createTextNode(localStorage.getItem('someThing'))
-        let someNumberOfPieces = document.createTextNode(localStorage.getItem('someNumberOfPieces'))
-        let priceOfTheThing = document.createTextNode(localStorage.getItem('priceOfTheThing'))
-        let linkToThePicture = document.createTextNode(localStorage.getItem('linkToThePicture'))
+    let someThings = document.createTextNode(localStorage.getItem('someThing'))
+    let someNumberOfPieces = document.createTextNode(localStorage.getItem('someNumberOfPieces'))
+    let priceOfTheThing = document.createTextNode(localStorage.getItem('priceOfTheThing'))
+    let linkToThePicture = document.createTextNode(localStorage.getItem('linkToThePicture'))
+    let deletedAll = document.getElementById('deletedAll')
 
-        let someThingsElems = someThings.textContent.split(',')
-        let someNumberOfPiecesElems = someNumberOfPieces.textContent.split(',')
-        let priceOfTheThings = priceOfTheThing.textContent.split(',')
-        let linkToThePictures = linkToThePicture.textContent.split(',')
+    let btnDeleted = document.createElement('button')
+    btnDeleted.textContent = 'DeletedAll';
 
-        for (let i = 0; i < someThingsElems.length; i++) {
-            let divEl1 = document.createElement('div')
-            divEl1.insertAdjacentHTML('beforeend',
-                someThingsElems[i]
-                + '-----'
-                + someNumberOfPiecesElems[i]
-                + '-----'
-                + priceOfTheThings[i]
-            );
-            document.body.appendChild(divEl1)
+    let someThingsElems = someThings.textContent.split(',')
+    let someNumberOfPiecesElems = someNumberOfPieces.textContent.split(',')
+    let priceOfTheThings = priceOfTheThing.textContent.split(',')
+    let linkToThePictures = linkToThePicture.textContent.split(',')
 
-            //TODO
-            //Зменшити розмір каринок, і якось їх добавити в ДІВ
+    // if (someThingsElems.length >= 1) {
+    //
+    // }
 
-            let imgEl1 = document.createElement('img')
-            imgEl1.setAttribute('src', linkToThePictures[i]);
-            document.body.appendChild(imgEl1);
+    for (let i = 0; i < someThingsElems.length; i++) {
+        let divEl1 = document.createElement('div')
+        divEl1.setAttribute('id', i + 1)
+        divEl1.insertAdjacentHTML('beforeend',
+            someThingsElems[i]
+            + '-----'
+            + someNumberOfPiecesElems[i]
+            + '-----'
+            + priceOfTheThings[i]
+        );
+        let imgEl1 = document.createElement('img')
+        imgEl1.setAttribute('src', linkToThePictures[i]);
+        imgEl1.setAttribute('width', '300px');
+        imgEl1.setAttribute('height', '150px');
+        document.body.appendChild(imgEl1);
+        imgEl1.insertAdjacentElement('beforebegin', divEl1)
+        let btnDeleted = document.createElement("button")
+        btnDeleted.textContent = 'Deleted';
+        btnDeleted.setAttribute('class', 'deleted')
+
+        divEl1.appendChild(imgEl1)
+        divEl1.appendChild(btnDeleted)
+
+        btnDeleted.onclick = function () {
+            document.getElementById(i + 1).remove();
+        };
+
+        deletedAll.onclick = function () {
+            for (let j = 0; j < someThingsElems.length; j++) {
+                document.getElementById(j + 1).hidden = true;
+            }
+            localStorage.removeItem('someThing')
+            localStorage.removeItem('someNumberOfPieces')
+            localStorage.removeItem('priceOfTheThing')
+            localStorage.removeItem('linkToThePicture')
         }
     }
-    someFn();
+
+
 </script>
 </html>
