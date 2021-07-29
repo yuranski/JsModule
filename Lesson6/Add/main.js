@@ -7,7 +7,7 @@
 
 
 let mainDiv = document.createElement('div')
-let btnPosts = document.createElement('button')
+let mainDiv2 = document.createElement('div')
 
 fetch('https://jsonplaceholder.typicode.com/users')
     .then(value => value.json())
@@ -25,46 +25,37 @@ fetch('https://jsonplaceholder.typicode.com/users')
             div.append(btn)
 
             btn.onclick = function () {
-                fetch('https://jsonplaceholder.typicode.com/posts')
+                fetch(`https://jsonplaceholder.typicode.com/users/${valueElement.id}/posts`)
                     .then(value => value.json())
                     .then(value => {
-
-                        document.body.append(mainDiv)
                         mainDiv.innerHTML = ''
-
                         for (const valueElement1 of value) {
-                            if (valueElement1.userId === valueElement.id) {
-                                let divPostsThisUsers = document.createElement('div')
-                                document.body.append(divPostsThisUsers)
-                                mainDiv.append(divPostsThisUsers)
-                                divPostsThisUsers.innerHTML = valueElement1.title
+                            document.body.append(mainDiv)
+                            let divPostsThisUsers = document.createElement('div')
+                            document.body.append(divPostsThisUsers)
+                            mainDiv.append(divPostsThisUsers)
+                            divPostsThisUsers.innerHTML = valueElement1.body
 
-                                btnPosts.innerHTML = 'elem'
-                                document.body.append(btnPosts)
-
-                                divPostsThisUsers.append(btnPosts)
-
-                                btnPosts.onclick = function () {
-                                    fetch('https://jsonplaceholder.typicode.com/comments')
-                                        .then(value => value.json())
-                                        .then(value => {
-
-
-                                            for (const valueElement2 of value) {
-                                                if(valueElement2.postId === valueElement1.userId){
-                                                    let comUser = document.createElement('div')
-                                                    document.body.append(comUser)
-                                                    comUser.innerHTML = valueElement2.body
-                                                }
-                                            }
-                                        })
-                                }
+                            let btnPosts = document.createElement('button')
+                            btnPosts.innerHTML = 'elem'
+                            document.body.append(btnPosts)
+                            divPostsThisUsers.append(btnPosts)
+                            btnPosts.onclick = function () {
+                                fetch(`https://jsonplaceholder.typicode.com/posts/${valueElement1.id}/comments`)
+                                    .then(value => value.json())
+                                    .then(value => {
+                                        mainDiv2.innerHTML = ''
+                                        for (const valueElement2 of value) {
+                                            let comUser = document.createElement('div')
+                                            document.body.append(comUser)
+                                            document.body.append(mainDiv2)
+                                            mainDiv2.append(comUser)
+                                            comUser.innerHTML = valueElement2.body
+                                        }
+                                    })
                             }
                         }
-
                     })
             }
         }
-
-
     })
