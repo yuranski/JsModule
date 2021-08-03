@@ -102,7 +102,7 @@ function toSmokeAHookah() {
     return new Promise((resolve, reject) => {
         setTimeout(()=>{
             resolve('Нарешті можна покурити кальянчик')
-        },666)
+        },Math.round(Math.random() * 10))
     })
 }
 
@@ -151,6 +151,7 @@ async function routine() {
 }
 
 routine().then();
+
 
 
 
