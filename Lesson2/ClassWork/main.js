@@ -123,5 +123,3 @@ for (let i = 0; i < mass7.length; i++) {
 
 
 
-
-
