@@ -42,10 +42,16 @@ for (const someUserValueElement of someUserValue) {
     divDescribe.append(mainDiv)
     divDescribe.append(postOfCurrentUser)
 }
-
-
-
 let someDiv = document.createElement('div')
+
+let someDivMarginAuto = document.createElement('div')
+someDivMarginAuto.style.margin = 'auto'
+
+
+let someDivGrid = document.createElement('div')
+document.body.append(someDivGrid)
+someDivGrid.style.display = 'grid'
+someDivGrid.style.gridTemplateColumns = 'auto auto auto auto auto'
 
 postOfCurrentUser.onclick = function () {
     fetch(`https://jsonplaceholder.typicode.com/users/${user.id}/posts`)
@@ -54,30 +60,25 @@ postOfCurrentUser.onclick = function () {
             someDiv.innerHTML = ''
             for (const valueElement of value) {
                 let someDivPost = document.createElement('div')
-                someDivPost.style.display = 'grid'
+
                 someDivPost.style.border = '12px solid green'
                 someDivPost.style.background = 'silver'
-                someDivPost.style.margin = 'auto'
 
                 let btnPost = document.createElement('button')
                 btnPost.innerHTML = 'Details'
                 btnPost.style.width = '90%'
                 btnPost.style.margin = 'auto'
 
-                let someDescription = document.createElement('p')
-                someDescription.style.margin = 'auto'
-
-                document.body.append(someDivPost)
-
-                someDiv.append(someDescription)
-                someDiv.append(btnPost)
-
-                someDivPost.append(someDescription)
-                someDivPost.append(btnPost)
-
-                someDescription.innerHTML = valueElement.body
-
-                btnPost.onclick = function () {
+                someDivPost.innerHTML = `<p>${valueElement.body}</p>
+                                        <div style="margin: auto; display: flex ">
+                                        <button class="onClick" style="margin: auto">${btnPost.innerHTML = 'Details'}</button>
+                                        </div>`
+                someDivGrid.append(someDivPost)
+                let btn = document.getElementsByClassName('onClick')
+                for (const btnElement of btn) {
+                    btnElement.style.width = '90%'
+                }
+                btn.onclick = function (){
                     location.href = `post-details.html?post=${JSON.stringify(valueElement)}`
                 }
             }
