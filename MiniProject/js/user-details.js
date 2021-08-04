@@ -18,6 +18,16 @@ someUserValue.push(user.company.name)
 someUserValue.push(user.company.catchPhrase)
 someUserValue.push(user.company.bs)
 
+let divDescribe = document.createElement('div')
+document.body.append(divDescribe)
+divDescribe.style.border = '12px solid green'
+divDescribe.style.background = 'silver'
+divDescribe.style.width = '300px'
+
+let postOfCurrentUser = document.createElement('button')
+postOfCurrentUser.innerHTML = 'postOfCurrentUser'
+document.body.append(postOfCurrentUser)
+
 for (const someUserValueElement of someUserValue) {
     let mainDiv = document.createElement('div')
     let someDescription = document.createElement('p')
@@ -28,11 +38,12 @@ for (const someUserValueElement of someUserValue) {
     document.body.append(someDescription)
 
     mainDiv.append(someDescription)
+
+    divDescribe.append(mainDiv)
+    divDescribe.append(postOfCurrentUser)
 }
 
-let postOfCurrentUser = document.createElement('button')
-postOfCurrentUser.innerHTML = 'postOfCurrentUser'
-document.body.append(postOfCurrentUser)
+
 
 let someDiv = document.createElement('div')
 
@@ -44,9 +55,9 @@ postOfCurrentUser.onclick = function () {
             for (const valueElement of value) {
                 let someDivPost = document.createElement('div')
                 someDivPost.style.display = 'grid'
-                someDivPost.style.borderWidth = '2px'
-                someDivPost.style.borderColor = 'red'
-                someDivPost.style.borderStyle = 'solid'
+                someDivPost.style.border = '12px solid green'
+                someDivPost.style.background = 'silver'
+                someDivPost.style.margin = 'auto'
 
                 let btnPost = document.createElement('button')
                 btnPost.innerHTML = 'Details'
@@ -54,6 +65,7 @@ postOfCurrentUser.onclick = function () {
                 btnPost.style.margin = 'auto'
 
                 let someDescription = document.createElement('p')
+                someDescription.style.margin = 'auto'
 
                 document.body.append(someDivPost)
 

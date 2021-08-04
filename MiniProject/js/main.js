@@ -1,33 +1,30 @@
 let mainDivGrid = document.createElement('div')
+document.body.append(mainDivGrid)
 mainDivGrid.style.display = 'grid'
-mainDivGrid.style.gridTemplateColumns = 'auto auto'
-mainDivGrid.style.borderWidth = '2px'
-mainDivGrid.style.borderColor = 'red'
-mainDivGrid.style.borderStyle = 'solid'
+mainDivGrid.style.gridTemplateColumns = 'auto auto auto auto auto'
 
 fetch('https://jsonplaceholder.typicode.com/users')
     .then(value => value.json())
     .then(value => {
         for (const valueElement of value) {
-            const mainDiv = document.createElement('div')
-            const divUser = document.createElement('div')
-            const link = document.createElement('a')
 
-            link.innerHTML = 'user-details.html'
-            link.href = `user-details.html?user=${JSON.stringify(valueElement)}`
-
+            let mainDiv = document.createElement('div')
+            mainDiv.style.border = '12px solid green'
+            mainDiv.style.background = 'silver'
             document.body.append(mainDiv)
-            document.body.append(divUser)
-            document.body.append(link)
-            document.body.append(mainDivGrid)
+            mainDiv.innerHTML = `<div>${valueElement.name}</div>`
 
-            mainDiv.append(divUser)
-            mainDiv.append(link)
+            const button = document.createElement('button')
+            button.innerHTML = `details`
+            document.body.append(button)
+
+            mainDiv.append(button)
+
+            button.onclick = function () {
+                console.log('asd')
+                location.href = `user-details.html?user=${JSON.stringify(valueElement)}`
+            }
+
             mainDivGrid.append(mainDiv)
-
-            divUser.innerHTML = valueElement.name
-            divUser.style.borderWidth = '2px'
-            divUser.style.borderColor = 'red'
-            divUser.style.borderStyle = 'solid'
         }
     })
